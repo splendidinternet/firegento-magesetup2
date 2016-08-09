@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2015 FireGento e.V. - All rights reserved.
+ * Copyright © 2016 FireGento e.V.
  * See LICENSE.md bundled with this module for license details.
  */
 namespace FireGento\MageSetup\Model\Setup\SubProcessor;
@@ -55,7 +55,9 @@ class SubProcessorPool
     }
 
     /**
-     * @return \ArrayIterator|Traversable
+     * Retrieve the subprocessor codes
+     *
+     * @return array
      */
     public function getSubProcessorCodes()
     {

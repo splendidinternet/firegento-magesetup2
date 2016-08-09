@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2015 FireGento e.V. - All rights reserved.
+ * Copyright © 2016 FireGento e.V.
  * See LICENSE.md bundled with this module for license details.
  */
 namespace FireGento\MageSetup\Plugin\Pricing;
@@ -12,6 +12,19 @@ namespace FireGento\MageSetup\Plugin\Pricing;
  */
 class AroundRenderPlugin
 {
+    /**
+     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     */
+    protected $_scopeConfig;
+
+    /**
+     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     */
+    public function __construct(\Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig)
+    {
+        $this->_scopeConfig = $scopeConfig;
+    }
+
     /**
      * @param \Magento\Framework\Pricing\Render            $subject
      * @param \Closure                                     $proceed

@@ -24,6 +24,32 @@ Requirements
 ------------
 - PHP >= 5.5.0
 
+Installation
+------------
+
+### Via composer (recommended)
+
+Please go to the Magento2 root directory and run the following commands in the shell:
+
+```
+composer config repositories.firegento_magesetup vcs git@github.com:firegento/firegento-magesetup2.git
+composer require firegento/magesetup2:dev-develop
+bin/magento module:enable FireGento_MageSetup
+bin/magento setup:upgrade
+bin/magento magesetup:setup:run <countrycode>
+```
+
+### Manually
+
+Please create the directory *app/code/FireGento/MageSetup* and copy the files from this repository to the created directory. Then run the following commands in the shell:
+
+```
+bin/magento module:enable FireGento_MageSetup
+bin/magento setup:upgrade
+bin/magento magesetup:setup:run <countrycode>
+```
+
+
 Support
 -------
 If you encounter any problems or bugs, please create an issue on [GitHub](https://github.com/firegento/firegento-magesetup2/issues).

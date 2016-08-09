@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2015 FireGento e.V. - All rights reserved.
+ * Copyright © 2016 FireGento e.V.
  * See LICENSE.md bundled with this module for license details.
  */
 namespace FireGento\MageSetup\Model\System;
@@ -103,5 +103,13 @@ class Config
         }
 
         return $this->context->getUrlBuilder()->getUrl(null, ['_direct' => $page->getIdentifier()]);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDisplayDeliveryTimeOnProductListing()
+    {
+        return (bool)$this->scopeConfig->getValue('catalog/frontend/display_delivery_time');
     }
 }
