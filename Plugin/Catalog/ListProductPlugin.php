@@ -34,14 +34,21 @@ class ListProductPlugin
         \Magento\Catalog\Model\Product $product)
     {
         $deliveryBlock = $subject->getLayout()->getBlock('product.info.delivery');
+
+        // Carry on with the default processing chain if the block does not exist.
+        if (!$deliveryBlock) {
+            return $proceed($product);
+        }
+
         $deliveryBlock->setProduct($product);
         $result = $proceed($product);
         if ((bool)$this->_scopeConfig->getValue(
                 'catalog/frontend/display_delivery_time',
                 \Magento\Store\Model\ScopeInterface::SCOPE_STORE
             )) {
-;
             return $deliveryBlock->toHtml() . $result;
+        } else {
+            return $result;
         }
     }
 }
